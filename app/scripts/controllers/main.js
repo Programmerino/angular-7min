@@ -23,6 +23,8 @@ angular.module('$app')
 
     $scope.start = function() {
       audioFiles.play('tick');
+      var msg = new SpeechSynthesisUtterance('Hello World');
+      window.speechSynthesis.speak(msg);
       $scope.countdown = $countdown({scope: $scope, prop: 'timer', duration: 3, tick: function() { audioFiles.play('tick'); }, callback: function() {
         audioFiles.play('start');
         $navigate.go($scope.next, 'glueTopFromBottom'); // cubeToLeft
